@@ -36,6 +36,7 @@ class Controller(db.Model):
         else:
             self.status = 255
         self.updateController()
+        db.session.commit()
 
     def updateController(self):
         payload = self.getPayload()
@@ -86,8 +87,9 @@ class Element(db.Model):
     addedAt = db.Column(db.DateTime)
     controller_id = db.Column(db.Integer, db.ForeignKey('controller.id'))
 
-    def __init__(self, name, status, description):
+    def __init__(self, name, status, description,controller_id):
         self.name = name
         self.status = status
         self.description = description
+        self.controller_id = controller_id
         self.addedAt = datetime.now()
