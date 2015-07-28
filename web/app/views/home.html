@@ -1,0 +1,26 @@
+
+<div class="jumbotron text-center">
+    <h1>Welcome Home</h1>
+
+    <p>{{ tagline }}</p>
+	<div class="col-md-12">
+      <!--Body content-->
+
+      <ul class="controllers list-group">
+
+        <div class="panel-collapse collapse list-group-item" ng-repeat="controller in controllers">
+		 <a href="#/controllers/{{controller.id}}">{{controller.name}}</a>
+         <p>{{controller.description}}</p>
+            <div class="elements list-group" data-toggle="collapse" data-target="#{{ controller.id }}-elements" >
+                Elements:
+                <div id="{{ controller.id }}-elements">
+                    <div class="list-group-item" ng-repeat="element in controller.elements">
+                        <a href="#/elements/{{ element.id }}">{{ element.name }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </ul>
+
+    </div>
+</div>

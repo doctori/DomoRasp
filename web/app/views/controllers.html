@@ -1,0 +1,12 @@
+
+<div class="jumbotron text-center">
+    <h1>Controllers</h1>
+
+</div>
+<div ng-repeat='controller in controllers' ng-controller='ControllerCtrl'>
+    <div class="values">
+        <h3>set values</h3>
+        <md-slider flex class="md-warn" md-discrete ng-model="controller.status" step="1" min="0" max="255" aria-label="rating" ng-initial></md-slider>
+    </div>
+    <button ng-click="clickController()" type="button" class="btn btn-default">Power</button>
+</div>
