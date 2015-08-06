@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <base href="/">
 
     <title>DomoRasp Incoroporated</title>
@@ -29,10 +30,10 @@
 	 <script type="text/javascript" src="public/libs/angular-resource/angular-resource.min.js"></script>
 </head>
 <body ng-app="DomoRasp" ng-controller="ControllerCtrl">
-<div class="container-fluid">
+
 
     <!-- HEADER -->
-    <nav class="navbar navbar-inverse navbar-collapse" role="navigation">
+    <nav class="navbar navbar-inverse" role="navigation">
          <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
@@ -52,10 +53,11 @@
          </div>
          </div>
     </nav>
-
+<div class="container-fluid">
     <!-- ANGULAR DYNAMIC CONTENT -->
     <div ng-view></div>
-<script type="text/javascript" src="public/libs/bootstrap/dist/js/bootstrap.min.js"></script>
 </div>
+<script type="text/javascript" src="public/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+
 </body>
 </html>

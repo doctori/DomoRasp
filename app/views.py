@@ -38,6 +38,8 @@ class ElementAPI(Resource):
         element.description = args['description']
         element.status = args['status']
         element.updateElement()
+        db.session.commit()
+        return marshal(element,element_fields)
     def get(self,element_id):
         element = Element.query.get(element_id)
         return [marshal(element, element_fields)]
@@ -147,6 +149,7 @@ class ControllerAPI(Resource):
         controller.updateController()
         #db.session.update(controller)
         db.session.commit()
+        return marshal(controller,controller_fields)
 
     @staticmethod
     def delete(self,controller_id):

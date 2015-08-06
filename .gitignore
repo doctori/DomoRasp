@@ -55,3 +55,9 @@ docs/_build/
 
 # PyBuilder
 target/
+
+#angular libs
+web/public/libs/
+
+# virtenv directory (yes it's called flask)
+flask/

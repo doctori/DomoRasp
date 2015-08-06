@@ -2,8 +2,18 @@ var domotekControllers = angular.module('domotekControllers', ['ngMaterial']);
 domotekControllers.controller('MainCtrl', ['$scope','Controller',
  function($scope,Controller) {
 	$scope.controllers = Controller.query();
-    $scope.tagline = 'To the moon and back!';   
-
+    $scope.tagline = 'Hello Papuchette !';
+     $scope.getGlobalStatus = function(controller) {
+         var globalStatus = 0;
+         controller.elements.forEach(function (element) {
+             globalStatus += element.status
+         });
+         globalStatus = Math.round((globalStatus / (255 * controller.elements.length)) * 100);
+         return globalStatus;
+     };
+    $scope.getElementStatus = function(element){
+        return Math.round((element.status/255)*100);
+    }
 }]);
 // Controlleurs
 domotekControllers.controller('ControllerCtrl', ['$scope','$routeParams', 'Controller',
@@ -27,8 +37,10 @@ domotekControllers.controller('ControllerCtrl', ['$scope','$routeParams', 'Contr
        });
       $scope.clickController= function (){
         $scope.controllers.forEach(function(controller){
-            Controller.switchIt({id:controller.id},controller)
+            Controller.switchIt({id:controller.id},controller);
+
       })
+      $scope.controllers = Controller.get({id:$routeParams.id});
     }
 
 }]);

@@ -3,24 +3,30 @@
     <h1>Welcome Home</h1>
 
     <p>{{ tagline }}</p>
-	<div class="col-md-12">
+</div>
+
       <!--Body content-->
 
-      <ul class="controllers list-group">
+      <div class="controllers list-group" id="controllers">
 
-        <div class="panel-collapse collapse list-group-item" ng-repeat="controller in controllers">
-		 <a href="#/controllers/{{controller.id}}">{{controller.name}}</a>
-         <p>{{controller.description}}</p>
-            <div class="elements list-group" data-toggle="collapse" data-target="#{{ controller.id }}-elements" >
-                Elements:
-                <div id="{{ controller.id }}-elements">
-                    <div class="list-group-item" ng-repeat="element in controller.elements">
-                        <a href="#/elements/{{ element.id }}">{{ element.name }}</a>
+        <div class=" collapse list-group-item row" ng-repeat="controller in controllers" data-toggle="collapse" data-target="#{{ controller.id }}" data-parent="#menu">
+		 <div class="col-md-12">
+            <h3>{{controller.name}}</h3>
+            <span class="label label-info">{{ getGlobalStatus(controller) }} %</span>
+            <div id="{{ controller.id }}" class="sublinks collapse">
+                <a href="#/controllers/{{controller.id}}"><p>{{controller.description}}</p></a>
+                <div class="elements list-group" data-toggle="collapse" data-target="#{{ controller.id }}-elements" >
+                    Elements:
+                    <div id="{{ controller.id }}-elements">
+                        <div class="list-group-item" ng-repeat="element in controller.elements">
+                            <a href="#/elements/{{ element.id }}">{{ element.name }}</a>
+                             <span class="label label-info">{{ getElementStatus(element) }} %</span>
+                        </div>
                     </div>
                 </div>
             </div>
+             </div>
         </div>
-      </ul>
-
+      </div>
     </div>
 </div>
