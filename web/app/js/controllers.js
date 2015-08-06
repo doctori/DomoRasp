@@ -35,13 +35,9 @@ domotekControllers.controller('ControllerCtrl', ['$scope','$routeParams', 'Contr
            updateController(newVal)
            }
        });
-      $scope.clickController= function (){
-        $scope.controllers.forEach(function(controller){
-            Controller.switchIt({id:controller.id},controller);
-
-      })
-      $scope.controllers = Controller.get({id:$routeParams.id});
-    }
+      $scope.clickController= function (controller){
+           $scope.controllers =  Controller.switchIt({id:controller.id},controller);
+      };
 
 }]);
 // Elements

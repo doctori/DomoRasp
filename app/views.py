@@ -55,7 +55,8 @@ class ElementActionsAPI(Resource):
     def get(self,element_id,action):
         element = Element.query.get(element_id)
         if action == 'switch':
-            element.switch()
+            element = element.switch()
+        return [marshal(element,element_fields)]
 
 class ElementListAPI(Resource):
     def __init__(self):
@@ -91,7 +92,8 @@ class ControllerActionsAPI(Resource):
     def get(self,controller_id,action):
         controller = Controller.query.get(controller_id)
         if action == 'switch':
-            controller.switch()
+            controller = controller.switch()
+        return [marshal(controller,controller_fields)]
 
 
 class ControllerListAPI(Resource):

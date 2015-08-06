@@ -5,7 +5,7 @@ domotekServices.factory('Controller',
 	return 	$resource('/api/controllers/:id/:action',{},{
 		get:{isArray:true},
         put: { method: 'PUT',isArray:false},
-        switchIt:{method: 'GET',isArray:false,params:{action:'switch'}}
+        switchIt:{method: 'GET',isArray:true,params:{action:'switch'}}
 	});
 });
 domotekServices.factory('Element',
@@ -14,6 +14,6 @@ domotekServices.factory('Element',
 	return 	$resource('/api/elements/:id/:action',{},{
 		get:{isArray:true},
         put: { method: 'PUT',isArray:false},
-        switchIt:{method: 'GET',isArray:false,params:{action:'switch'}}
+        switchIt:{method: 'GET',isArray:true,params:{action:'switch'}}
 	});
 });

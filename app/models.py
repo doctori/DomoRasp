@@ -37,6 +37,7 @@ class Controller(db.Model):
             self.status = 255
         self.updateController()
         db.session.commit()
+        return self
 
     def updateController(self):
         for element in self.elements:
@@ -70,6 +71,7 @@ class Element(db.Model):
             self.status = 255
         self.updateElement()
         db.session.commit()
+        return self;
 
     def updateElement(self):
         payload = self.getPayload()
