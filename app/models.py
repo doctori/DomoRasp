@@ -1,6 +1,7 @@
 from app import db
 from datetime import datetime
 import time
+from struct import unpack
 import sys
 from RF24 import *
 
@@ -110,6 +111,7 @@ class Element(db.Model):
                 receive_payload = radio.read(len)
 
                 # Spew it
-                print('got response size=', len, ' value="', receive_payload, '"')
+                received_payload = unpack('l',receive_payload)
+                print('got response size={0} value={1}'.format(len,received_payload))
                 break
             time.sleep(1)

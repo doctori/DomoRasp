@@ -2,7 +2,7 @@ from flask import redirect, url_for, jsonify, request,make_response
 from flask.ext.restful import Api, Resource, reqparse, fields, marshal
 from app import app,db
 from .models import Controller,Element
-from RF24Connector import updateController
+
 api = Api(app)
 element_fields = {
     'id': fields.Integer,
